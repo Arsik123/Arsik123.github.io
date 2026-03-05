@@ -3,102 +3,398 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Персональная страница | Arsik123</title>
+    <title>Arsik123 - AI-интегратор и разработчик</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
             color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f4f4f9;
         }
-        header {
-            background: #2c3e50;
-            color: #fff;
-            padding: 2rem;
-            text-align: center;
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 30px;
             border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #667eea;
+            font-weight: 600;
+            margin: 0 20px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #764ba2;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .header h1 {
+            font-size: 3em;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .header .title {
+            font-size: 1.5em;
+            color: #764ba2;
             margin-bottom: 20px;
         }
-        .container {
-            background: #fff;
+
+        .header .bio {
+            font-size: 1.1em;
+            color: #666;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Info Cards */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .info-card {
+            background: white;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        h2 {
-            color: #2c3e50;
-            border-bottom: 2px solid #2c3e50;
-            padding-bottom: 10px;
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
-        .section {
+
+        .info-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .info-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .skills-section h2 {
+            color: #667eea;
+            margin-bottom: 30px;
+            font-size: 2em;
+            text-align: center;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* Experience Section */
+        .experience-section {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .experience-section h2 {
+            color: #667eea;
+            margin-bottom: 30px;
+            font-size: 2em;
+            text-align: center;
+        }
+
+        .experience-item {
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
             margin-bottom: 30px;
         }
-        .skills-list {
+
+        .experience-item h3 {
+            color: #764ba2;
+            margin-bottom: 5px;
+        }
+
+        .experience-item .date {
+            color: #999;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .experience-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-section h2 {
+            color: #667eea;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+
+        .contact-links {
             display: flex;
+            justify-content: center;
+            gap: 20px;
             flex-wrap: wrap;
-            gap: 10px;
-            list-style: none;
-            padding: 0;
         }
-        .skills-list li {
-            background: #e74c3c;
+
+        .contact-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
         }
+
+        .contact-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Footer */
         footer {
             text-align: center;
+            color: white;
             margin-top: 40px;
-            font-size: 0.8rem;
-            color: #777;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .header .title {
+                font-size: 1.2em;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 5px 0;
+            }
         }
     </style>
 </head>
 <body>
-
-    <header>
-        <h1>Arsik123</h1>
-        <p>Студент | Начинающий разработчик</p>
-    </header>
-
     <div class="container">
-        <section class="section">
-            <h2>Обо мне</h2>
-            <p>Привет! Я студент, изучающий современные технологии разработки. Увлекаюсь программированием, автоматизацией и изучением инструментов DevOps, таких как Git и GitHub.</p>
-        </section>
+        <!-- Navigation -->
+        <nav>
+            <div style="font-weight: 700; font-size: 1.3em; color: #667eea;">Arsik123</div>
+            <div>
+                <a href="#about">О мне</a>
+                <a href="#skills">Навыки</a>
+                <a href="#experience">Опыт</a>
+                <a href="#contact">Контакты</a>
+            </div>
+        </nav>
 
-        <section class="section">
-            <h2>Образование</h2>
-            <ul>
-                <li><strong>Высшее техническое образование</strong> (в процессе) — Специальность: Информационные системы и технологии.</li>
-                <li>Курсы по веб-разработке и системному администрированию.</li>
-            </ul>
-        </section>
+        <!-- Header -->
+        <div class="header">
+            <div class="avatar">👨‍💻</div>
+            <h1>Arsik123</h1>
+            <div class="title">AI-интегратор & Разработчик</div>
+            <p class="bio">
+                Студент 3-го курса Уфимского нефтяного университета (УГНТУ) по направлению 
+                «Цифровые технологии и защита информации». Специализируюсь на создании чат-ботов, 
+                автоматизации бизнес-процессов и AI-интеграции. Возраст: 20 лет.
+            </p>
+        </div>
 
-        <section class="section">
-            <h2>Навыки</h2>
-            <ul class="skills-list">
-                <li>Git & GitHub</li>
-                <li>HTML5 & CSS3</li>
-                <li>JavaScript</li>
-                <li>Python</li>
-                <li>Linux Shell</li>
-            </ul>
-        </section>
+        <!-- Info Cards -->
+        <div class="info-grid" id="about">
+            <div class="info-card">
+                <h3>🎓 Образование</h3>
+                <p>
+                    <strong>Уфимский нефтяной университет (УГНТУ)</strong><br>
+                    Направление: Цифровые технологии и защита информации<br>
+                    Курс: 3-й<br>
+                    Статус: Активный студент
+                </p>
+            </div>
+            <div class="info-card">
+                <h3>👤 О себе</h3>
+                <p>
+                    Возраст: 20 лет<br>
+                    Статус: Женат<br>
+                    Специализация: AI-интеграция и автоматизация<br>
+                    Интересы: Технологии, инновации, бизнес-автоматизация
+                </p>
+            </div>
+            <div class="info-card">
+                <h3>🚀 Специализация</h3>
+                <p>
+                    Разработка чат-ботов для бизнеса<br>
+                    Автоматизация с помощью Salebot, Make, n8n<br>
+                    AI-интеграция в бизнес-процессы<br>
+                    No-code и Low-code решения
+                </p>
+            </div>
+        </div>
 
-        <section class="section">
-            <h2>Опыт</h2>
-            <p>Участие в учебных проектах по созданию веб-приложений и автоматизации задач с помощью скриптов. Постоянно развиваю свои навыки через практические лабораторные работы.</p>
-        </section>
+        <!-- Skills Section -->
+        <div class="skills-section" id="skills">
+            <h2>🛠️ Технические навыки</h2>
+            <div class="skills-grid">
+                <div class="skill-item">Salebot</div>
+                <div class="skill-item">Make.com</div>
+                <div class="skill-item">n8n</div>
+                <div class="skill-item">Чат-боты</div>
+                <div class="skill-item">AI-интеграция</div>
+                <div class="skill-item">Автоматизация</div>
+                <div class="skill-item">Python</div>
+                <div class="skill-item">JavaScript</div>
+                <div class="skill-item">HTML/CSS</div>
+                <div class="skill-item">Git/GitHub</div>
+                <div class="skill-item">No-code решения</div>
+                <div class="skill-item">Low-code платформы</div>
+            </div>
+        </div>
+
+        <!-- Experience Section -->
+        <div class="experience-section" id="experience">
+            <h2>💼 Опыт и проекты</h2>
+            
+            <div class="experience-item">
+                <h3>AI-интегратор</h3>
+                <div class="date">Текущая должность</div>
+                <p>
+                    Разработка и внедрение AI-решений в бизнес-процессы. 
+                    Создание интеграций между различными платформами и сервисами. 
+                    Оптимизация рабочих процессов с использованием автоматизации.
+                </p>
+            </div>
+
+            <div class="experience-item">
+                <h3>Разработка чат-ботов</h3>
+                <div class="date">Специализация</div>
+                <p>
+                    Создание интеллектуальных чат-ботов для различных платформ. 
+                    Интеграция с CRM-системами и мессенджерами. 
+                    Настройка автоматических ответов и сценариев общения.
+                </p>
+            </div>
+
+            <div class="experience-item">
+                <h3>Автоматизация бизнес-процессов</h3>
+                <div class="date">Основной навык</div>
+                <p>
+                    Использование платформ Make, n8n и Salebot для автоматизации. 
+                    Создание workflow'ов для оптимизации работы команд. 
+                    Интеграция различных сервисов в единую экосистему.
+                </p>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact-section" id="contact">
+            <h2>📞 Свяжитесь со мной</h2>
+            <p style="margin-bottom: 30px; color: #666; font-size: 1.1em;">
+                Готов к сотрудничеству и обсуждению новых проектов
+            </p>
+            <div class="contact-links">
+                <a href="https://github.com/Arsik123" class="contact-link">GitHub</a>
+                <a href="mailto:your.email@example.com" class="contact-link">Email</a>
+                <a href="https://t.me/your_telegram" class="contact-link">Telegram</a>
+                <a href="https://linkedin.com/in/your-profile" class="contact-link">LinkedIn</a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 Arsik123. Все права защищены.</p>
+            <p>Создано с ❤️ для демонстрации навыков веб-разработки</p>
+        </footer>
     </div>
-
-    <footer>
-        <p>&copy; 2026 Arsik123. Создано для Лабораторной работы №3.</p>
-    </footer>
-
 </body>
 </html>
